@@ -1,26 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Provider, defaultTheme, ProgressCircle } from "@adobe/react-spectrum"
+import { lazy, Suspense } from "react"
 
-function App() {
+const Layout = lazy(() => import("./components/Layout"))
+const Routes = lazy(() => import("./Routes"))
+
+export default () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Provider theme={defaultTheme} colorScheme="dark">
+      <Suspense
+        fallback={<ProgressCircle aria-label="Loading…" isIndeterminate />}
+      >
+        <Layout>
+          <Routes />
+        </Layout>
+      </Suspense>
+    </Provider>
+  )
 }
-
-export default App;

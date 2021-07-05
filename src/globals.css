@@ -1,0 +1,12 @@
+body,
+html,
+#root {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.icon-wrapper {
+  width: 32px;
+  height: 32px;
+}
