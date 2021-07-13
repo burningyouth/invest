@@ -1,0 +1,6 @@
+.headerTitle {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}

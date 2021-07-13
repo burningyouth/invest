@@ -10,6 +10,8 @@ dist/
 *.lock
 yalc.sig
 .yalc/
+build
+
 
 dist
 
