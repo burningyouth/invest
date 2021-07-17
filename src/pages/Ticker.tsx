@@ -1,60 +1,658 @@
-import { Line } from "react-chartjs-2"
 import { ru } from "date-fns/locale"
 import { View } from "@adobe/react-spectrum"
-import { Chart } from "chart.js"
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+  ComposedChart,
+  Bar,
+  AreaChart,
+  Area,
+} from "recharts"
+import classes from "./chart.module.scss"
+
 const months: any[] = []
 for (let i = 0; i < 12; i++) {
   months.push(ru.localize?.month(i))
 }
-const elem = document.body.querySelector("#root > div")
-const style = elem && getComputedStyle(elem!)
-const color =
-  style?.getPropertyValue("--spectrum-global-color-gray-800") ?? "gray"
-const lineHeight =
-  style?.getPropertyValue("--spectrum-alias-body-text-line-height") ?? 1
-Chart.defaults.font = {
-  family:
-    "adobe-clean-ux,adobe-clean,Source Sans Pro,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif",
-  lineHeight,
-  size: 12,
-  weight: "normal",
-  style: "normal",
-}
 
-console.log(color)
+const data = [
+  {
+    uv: 4000.55,
+  },
+  {
+    uv: 4444.33,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
+  {
+    uv: 3500,
+  },
+  {
+    uv: 2444,
+  },
+  {
+    uv: 1470,
+  },
+  {
+    uv: 1400,
+  },
+  {
+    uv: 4000,
+  },
+  {
+    uv: 4444,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
+  {
+    uv: 4444,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
+  {
+    uv: 3500,
+  },
+  {
+    uv: 2444,
+  },
+  {
+    uv: 1470,
+  },
+  {
+    uv: 1400,
+  },
+  {
+    uv: 4000,
+  },
+  {
+    uv: 4444,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
+  {
+    uv: 4444,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
+  {
+    uv: 3500,
+  },
+  {
+    uv: 2444,
+  },
+  {
+    uv: 1470,
+  },
+  {
+    uv: 1400,
+  },
+  {
+    uv: 4000,
+  },
+  {
+    uv: 4444,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
+  {
+    uv: 4444,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
+  {
+    uv: 3500,
+  },
+  {
+    uv: 2444,
+  },
+  {
+    uv: 1470,
+  },
+  {
+    uv: 1400,
+  },
+  {
+    uv: 4000,
+  },
+  {
+    uv: 4444,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
+  {
+    uv: 4444,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
+  {
+    uv: 3500,
+  },
+  {
+    uv: 2444,
+  },
+  {
+    uv: 1470,
+  },
+  {
+    uv: 1400,
+  },
+  {
+    uv: 4000,
+  },
+  {
+    uv: 4444,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
+  {
+    uv: 4444,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
+  {
+    uv: 3500,
+  },
+  {
+    uv: 2444,
+  },
+  {
+    uv: 1470,
+  },
+  {
+    uv: 1400,
+  },
+  {
+    uv: 4000,
+  },
+  {
+    uv: 4444,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
+  {
+    uv: 4444,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
+  {
+    uv: 3500,
+  },
+  {
+    uv: 2444,
+  },
+  {
+    uv: 1470,
+  },
+  {
+    uv: 1400,
+  },
+  {
+    uv: 4000,
+  },
+  {
+    uv: 4444,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
+  {
+    uv: 4444,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
+  {
+    uv: 3500,
+  },
+  {
+    uv: 2444,
+  },
+  {
+    uv: 1470,
+  },
+  {
+    uv: 1400,
+  },
+  {
+    uv: 4000,
+  },
+  {
+    uv: 4444,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
 
-Chart.defaults.color = color
+  {
+    uv: 4444,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
+  {
+    uv: 3500,
+  },
+  {
+    uv: 2444,
+  },
+  {
+    uv: 1470,
+  },
+  {
+    uv: 1400,
+  },
+  {
+    uv: 4000,
+  },
+  {
+    uv: 4444,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
+  {
+    uv: 4444,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
+  {
+    uv: 3500,
+  },
+  {
+    uv: 2444,
+  },
+  {
+    uv: 1470,
+  },
+  {
+    uv: 1400,
+  },
+  {
+    uv: 4000,
+  },
+  {
+    uv: 4444,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
+
+  {
+    uv: 4444,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
+  {
+    uv: 3500,
+  },
+  {
+    uv: 2444,
+  },
+  {
+    uv: 1470,
+  },
+  {
+    uv: 1400,
+  },
+  {
+    uv: 4000,
+  },
+  {
+    uv: 4444,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
+  {
+    uv: 4444,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
+  {
+    uv: 3500,
+  },
+  {
+    uv: 2444,
+  },
+  {
+    uv: 1470,
+  },
+  {
+    uv: 1400,
+  },
+  {
+    uv: 4000,
+  },
+  {
+    uv: 4444,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
+  {
+    uv: 4444,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
+  {
+    uv: 3500,
+  },
+  {
+    uv: 2444,
+  },
+  {
+    uv: 1470,
+  },
+  {
+    uv: 1400,
+  },
+  {
+    uv: 4000,
+  },
+  {
+    uv: 4444,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
+  {
+    uv: 4444,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
+  {
+    uv: 3500,
+  },
+  {
+    uv: 2444,
+  },
+  {
+    uv: 1470,
+  },
+  {
+    uv: 1400,
+  },
+  {
+    uv: 4000,
+  },
+  {
+    uv: 4444,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
+
+  {
+    uv: 4444,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
+  {
+    uv: 3500,
+  },
+  {
+    uv: 2444,
+  },
+  {
+    uv: 1470,
+  },
+  {
+    uv: 1400,
+  },
+  {
+    uv: 4000,
+  },
+  {
+    uv: 4444,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
+  {
+    uv: 4444,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
+  {
+    uv: 3500,
+  },
+  {
+    uv: 2444,
+  },
+  {
+    uv: 1470,
+  },
+  {
+    uv: 1400,
+  },
+  {
+    uv: 4000,
+  },
+  {
+    uv: 4444,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
+  {
+    uv: 4444,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
+  {
+    uv: 3500,
+  },
+  {
+    uv: 2444,
+  },
+  {
+    uv: 1470,
+  },
+  {
+    uv: 1400,
+  },
+  {
+    uv: 4000,
+  },
+  {
+    uv: 4444,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
+
+  {
+    uv: 4444,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
+  {
+    uv: 3500,
+  },
+  {
+    uv: 2444,
+  },
+  {
+    uv: 1470,
+  },
+  {
+    uv: 1400,
+  },
+  {
+    uv: 4000,
+  },
+  {
+    uv: 4444,
+  },
+  {
+    uv: 4500,
+  },
+  {
+    uv: 4700,
+  },
+]
+
+const formatter = new Intl.NumberFormat("ru", {
+  minimumSignificantDigits: 2,
+  currency: "RUB",
+  currencyDisplay: "symbol",
+  style: "currency",
+})
+
 export default () => {
   return (
-    <View marginStart="size-100" marginEnd="size-100">
-      <Line
-        data={{
-          labels: months,
-          datasets: [
-            {
-              label: "My First Dataset",
-              data: [65, 59, 80, 81, 56, 55, 40],
-              fill: false,
-              borderColor: "rgb(75, 192, 192)",
-              tension: 0.1,
-            },
-          ],
-        }}
-        options={{
-          plugins: {
-            legend: {
-              position: "bottom",
+    <ResponsiveContainer className={classes.container}>
+      <LineChart width={500} height={300} data={data}>
+        <Tooltip
+          active={true}
+          labelClassName={classes.tooltipLabel}
+          wrapperClassName={classes.tooltipWrapper}
+          position={{ x: 0, y: 0 }}
+          cursor={{ stroke: "var(--spectrum-global-color-chart-cursor)" }}
+          formatter={(value: string) => formatter.format(+value)}
+        />
 
-              labels: {
-                font: {
-                  color: "var(--spectrum-global-color-gray-100)",
-                },
-              },
-            },
-          },
-        }}
-        type="line"
-      />
-    </View>
+        <Line
+          dot={false}
+          type="monotone"
+          dataKey="uv"
+          stroke="var(--spectrum-global-color-chart-line)"
+          strokeWidth={2}
+        />
+      </LineChart>
+    </ResponsiveContainer>
   )
 }

@@ -1,6 +1,6 @@
 import { Switch, Route } from "react-router-dom"
 import { lazy } from "react"
-import { MenuList } from "../shared/components"
+import { MenuList } from "../shared/ui"
 import { Item } from "@adobe/react-spectrum"
 
 const Error = lazy(() => import("./Error"))

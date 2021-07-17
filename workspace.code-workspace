@@ -1,17 +1,17 @@
 {
   "folders": [
-	{
-		"path": "../.."
-	},
-	{
-		"path": "../../../../Работа/ftl_marketing_arm_frontend"
-	},
-	{
-		"path": "../../../../Работа/ftl_dashboards_ui_kit_frontend"
-	},
-	{
-		"path": "../../../../Работа/ftl_dashboards_core_frontend"
-	}
-],
+    {
+      "path": "../../../../Работа/ftl_marketing_arm_frontend"
+    },
+    {
+      "path": "../../../../Работа/ftl_dashboards_ui_kit_frontend"
+    },
+    {
+      "path": "../../../../Работа/ftl_dashboards_core_frontend"
+    },
+    {
+      "path": "."
+    }
+  ],
   "settings": {}
 }

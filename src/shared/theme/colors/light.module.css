@@ -72,6 +72,8 @@
   --spectrum-global-color-gray-700: rgb(110, 110, 110);
   --spectrum-global-color-gray-800: rgb(75, 75, 75);
   --spectrum-global-color-gray-900: rgb(44, 44, 44);
+  --spectrum-global-color-chart-line: var(--spectrum-global-color-gray-600);
+  --spectrum-global-color-chart-cursor: var(--spectrum-global-color-gray-500);
   --spectrum-alias-background-color-modal-overlay: rgba(0, 0, 0, 0.4);
   --spectrum-alias-dropshadow-color: rgba(0, 0, 0, 0.15);
   --spectrum-alias-background-color-hover-overlay: rgba(44, 44, 44, 0.04);

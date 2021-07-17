@@ -1,19 +1,20 @@
 import { ActionButton } from "@adobe/react-spectrum"
-import { useTheme } from "../hooks/useTheme"
 import Moon from "@spectrum-icons/workflow/Moon"
 import Remove from "@spectrum-icons/workflow/Remove"
 import Light from "@spectrum-icons/workflow/Light"
 import { useState } from "react"
+import { useColorScheme } from "../hooks/useColorScheme"
+import { ColorSchemes } from "../config"
 
-export const ThemeButton = () => {
-  const [theme, setTheme, clearStorage] = useTheme()
+export const ColorSchemeButton = () => {
+  const [theme, setTheme, clearStorage] = useColorScheme()
   const [counter, setCounter] = useState(0)
   return counter < 2 ? (
     theme === "dark" ? (
       <ActionButton
         aria-label="Светлая тема"
         onPress={() => {
-          setTheme("light")
+          setTheme(ColorSchemes.light)
           setCounter((counter) => ++counter)
         }}
       >
@@ -23,7 +24,7 @@ export const ThemeButton = () => {
       <ActionButton
         aria-label="Темная тема"
         onPress={() => {
-          setTheme("dark")
+          setTheme(ColorSchemes.dark)
           setCounter((counter) => ++counter)
         }}
       >

@@ -5,7 +5,7 @@ import {
   Grid,
   TextField,
 } from "@adobe/react-spectrum"
-import { Toolbar } from "../shared/components"
+import { Toolbar } from "../shared/ui"
 
 export default () => {
   return (

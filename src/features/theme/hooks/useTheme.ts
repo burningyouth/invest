@@ -1,9 +1,31 @@
-import { useContext } from "react"
-import { ThemeContext, ThemeProviderProps } from "../components/ThemeProvider"
-import { Themes } from "../types"
+import { MappedTheme, mapTheme } from "../lib"
 
-export const useTheme = (): [Themes, (theme: Themes) => void, () => void] => {
-  const { theme, setTheme, clearStorage } =
-    useContext<ThemeProviderProps>(ThemeContext)
-  return [theme, setTheme, clearStorage]
+import { useColorScheme } from "../../../entities/colorScheme"
+import { useEffect, useState } from "react"
+
+//const elem = document.createElement("div")//
+
+//elem.classList.add(light["spectrum-light"])//
+
+//const mappedLight = mapTheme(getComputedStyle(elem))//
+
+//elem.classList.add(dark["spectrum-dark"])//
+
+//const mappedDark = mapTheme(getComputedStyle(elem))//
+
+//console.log("map", mappedLight, mappedDark)
+
+export const useTheme = () => {
+  const [colorScheme] = useColorScheme()
+
+  const elem = document.body.querySelector("#root > div")!
+  const style = getComputedStyle(elem)
+  const [theme, setTheme] = useState<MappedTheme>(mapTheme(style))
+
+  useEffect(() => {
+    const style = getComputedStyle(elem)
+    setTheme(mapTheme(style))
+  }, [colorScheme])
+
+  return theme
 }

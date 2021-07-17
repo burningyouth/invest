@@ -2,7 +2,10 @@ import { Provider, ProgressCircle } from "@adobe/react-spectrum"
 import { createBrowserHistory } from "history"
 import { lazy, Suspense } from "react"
 import { Router } from "react-router-dom"
-import { ThemeProvider, useThemeContextValue } from "../features/theme"
+import {
+  ColorSchemeProvider,
+  useColorSchemeValue,
+} from "../entities/colorScheme"
 import "./globals.css"
 import { homepage } from "../../package.json"
 import { basicTheme } from "../shared/theme"
@@ -16,12 +19,12 @@ const history = createBrowserHistory(
 const Routes = lazy(() => import("../pages/Routes"))
 
 export default () => {
-  const [theme, setTheme, clearStorage] = useThemeContextValue()
+  const [colorScheme, setColorScheme, clearStorage] = useColorSchemeValue()
   return (
-    <Provider theme={basicTheme} colorScheme={theme as any} height="100%">
-      <ThemeProvider
-        theme={theme}
-        setTheme={setTheme}
+    <Provider theme={basicTheme} colorScheme={colorScheme} height="100%">
+      <ColorSchemeProvider
+        colorScheme={colorScheme}
+        setColorScheme={setColorScheme}
         clearStorage={clearStorage}
       >
         <Suspense
@@ -31,7 +34,7 @@ export default () => {
             <Routes />
           </Router>
         </Suspense>
-      </ThemeProvider>
+      </ColorSchemeProvider>
     </Provider>
   )
 }

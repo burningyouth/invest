@@ -1,8 +1,8 @@
 import { View, Flex, Heading } from "@adobe/react-spectrum"
 import { useState } from "react"
 import { useMediaQuery } from "../../shared/hooks/useMediaQuery"
-import { ThemeButton } from "../../features/theme"
-import { BasicComponentProps, Logo, MenuTrigger } from "../../shared/components"
+import { ColorSchemeButton } from "../../entities/colorScheme"
+import { BasicComponentProps, Logo, MenuTrigger } from "../../shared/ui"
 import { Link } from "react-router-dom"
 import styles from "./header.module.css"
 
@@ -37,7 +37,7 @@ export default ({ children }: HeaderProps) => {
           </Link>
         </Flex>
         <Flex gap="size-150" alignItems="center">
-          <ThemeButton />
+          <ColorSchemeButton />
           <MenuTrigger isOpen={isOpen} setIsOpen={setIsOpen}>
             {children}
           </MenuTrigger>

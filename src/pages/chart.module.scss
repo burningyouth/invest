@@ -1,0 +1,19 @@
+.container {
+  width: calc(100% - var(--spectrum-global-dimension-size-600)) !important;
+  height: calc(100% - var(--spectrum-global-dimension-size-600)) !important;
+  margin-right: var(--spectrum-global-dimension-size-300);
+  margin-left: var(--spectrum-global-dimension-size-300);
+  @media (max-width: 600px) {
+    max-height: var(--spectrum-global-dimension-size-3000);
+  }
+}
+
+.tooltipLabel {
+  color: var(--spectrum-global-color-gray-700);
+}
+
+.tooltipWrapper {
+  position: relative;
+  background-color: transparent !important;
+  border-color: transparent !important;
+}

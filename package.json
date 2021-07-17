@@ -16,7 +16,6 @@
     "@types/react-router-dom": "^5.1.7",
     "@typescript-eslint/eslint-plugin": "^4.27.0",
     "@typescript-eslint/parser": "^4.28.0",
-    "chart.js": "^3.4.0",
     "cross-env": "^7.0.3",
     "eslint": "^7.29.0",
     "eslint-config-react-app": "^6.0.0",
@@ -24,10 +23,10 @@
     "history": "^4.10.1",
     "node-sass": "4.14.1",
     "react": "^17.0.2",
-    "react-chartjs-2": "^3.0.3",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "recharts": "^2.0.10",
     "typescript": "^4.3.4",
     "web-vitals": "^1.0.1",
     "workbox-broadcast-update": "^6.1.5",
@@ -37,7 +36,7 @@
     "workbox-routing": "^6.1.5",
     "workbox-strategies": "^6.1.5"
   },
-  "homepage": "http://burningyouth.github.io/",
+  "homepage": "http://burningyouth.github.io/invest",
   "scripts": {
     "start": "cross-env NODE_ENV=development react-scripts start",
     "build": "cross-env NODE_ENV=production react-scripts build",
