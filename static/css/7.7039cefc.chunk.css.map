@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/widgets/header/header.module.css"],"names":[],"mappings":"AAAA,2BACE,YAAa,CACb,kBAAmB,CACnB,oBAAqB,CACrB,aACF","file":"7.7039cefc.chunk.css","sourcesContent":[".headerTitle {\n  display: flex;\n  align-items: center;\n  text-decoration: none;\n  color: inherit;\n}\n"]}
