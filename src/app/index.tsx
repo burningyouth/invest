@@ -9,14 +9,17 @@ import {
 import "./globals.css"
 import { homepage } from "../../package.json"
 import { basicTheme } from "../shared/theme"
+import { BaseLayout } from "../shared/ui"
+import { Header } from "../widgets/header"
+import { Content } from "../shared/ui"
+import Routes from "../pages/Routes"
+import Menu from "../pages/Routes/Menu"
 const path = new URL(homepage)
 const history = createBrowserHistory(
   process.env.NODE_ENV === "production"
     ? { basename: path.pathname }
     : undefined
 )
-
-const Routes = lazy(() => import("../pages/Routes"))
 
 export default () => {
   const [colorScheme, setColorScheme, clearStorage] = useColorSchemeValue()
@@ -31,7 +34,14 @@ export default () => {
           fallback={<ProgressCircle aria-label="Loading…" isIndeterminate />}
         >
           <Router history={history}>
-            <Routes />
+            <BaseLayout>
+              <Header>
+                <Menu />
+              </Header>
+              <Content>
+                <Routes />
+              </Content>
+            </BaseLayout>
           </Router>
         </Suspense>
       </ColorSchemeProvider>

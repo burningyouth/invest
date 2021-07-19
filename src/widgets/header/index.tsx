@@ -2,15 +2,16 @@ import { View, Flex, Heading } from "@adobe/react-spectrum"
 import { useState } from "react"
 import { useMediaQuery } from "../../shared/hooks/useMediaQuery"
 import { ColorSchemeButton } from "../../entities/colorScheme"
-import { BasicComponentProps, Logo, MenuTrigger } from "../../shared/ui"
+import { Logo, MenuTrigger } from "../../shared/ui"
 import { Link } from "react-router-dom"
 import styles from "./header.module.css"
+import { BasicComponentProps } from "../../shared/ui/types"
 
 export type HeaderProps = BasicComponentProps & {
   onMenuItemPress?: (key: React.Key) => void
 }
 
-export default ({ children }: HeaderProps) => {
+export const Header = ({ children }: HeaderProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const isMobile = useMediaQuery(`(max-width:640px)`)
 

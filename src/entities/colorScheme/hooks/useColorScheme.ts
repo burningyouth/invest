@@ -3,7 +3,7 @@ import { ColorSchemes } from ".."
 import {
   ColorSchemeProviderProps,
   ColorSchemeContext,
-} from "../components/ColorSchemeProvider"
+} from "../ui/ColorSchemeProvider"
 
 export const useColorScheme = (): [
   ColorSchemes,

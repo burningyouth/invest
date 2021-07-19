@@ -1,7 +1,7 @@
 import { MenuTrigger, ActionButton } from "@adobe/react-spectrum"
-import { BasicComponentProps } from "./types"
 import ShowMenu from "@spectrum-icons/workflow/ShowMenu"
 import Close from "@spectrum-icons/workflow/Close"
+import { BasicComponentProps } from "../types"
 
 export type MenuTriggerProps = BasicComponentProps & {
   isOpen: boolean

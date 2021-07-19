@@ -62,7 +62,7 @@
   --spectrum-global-color-gray-800: rgb(227, 227, 227);
   --spectrum-global-color-gray-900: rgb(255, 255, 255);
   --spectrum-global-color-chart-line: #a7bbc9;
-  --spectrum-global-color-chart-cursor: var(--spectrum-global-color-gray-600);
+  --spectrum-global-color-chart-cursor: #b1c4d1;
   --spectrum-alias-background-color-modal-overlay: rgba(0, 0, 0, 0.5);
   --spectrum-alias-dropshadow-color: rgba(0, 0, 0, 0.5);
   --spectrum-alias-background-color-hover-overlay: rgba(255, 255, 255, 0.06);

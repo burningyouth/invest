@@ -1,20 +1,9 @@
 import { ru } from "date-fns/locale"
-import { View } from "@adobe/react-spectrum"
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-  ComposedChart,
-  Bar,
-  AreaChart,
-  Area,
-} from "recharts"
-import classes from "./chart.module.scss"
+import { Heading, View } from "@adobe/react-spectrum"
+
+import { useCallback, useState } from "react"
+import { LineChart } from "../shared/ui"
+import { TickerName, TickerValue } from "../entities/tickerInfo"
 
 const months: any[] = []
 for (let i = 0; i < 12; i++) {
@@ -23,636 +12,84 @@ for (let i = 0; i < 12; i++) {
 
 const data = [
   {
-    uv: 4000.55,
+    name: "03.12.1999",
+    value: 4000.55,
   },
   {
-    uv: 4444.33,
+    name: "03.12.2000",
+    value: 2822.85,
   },
   {
-    uv: 4500,
+    name: "03.12.2001",
+    value: 1922.46,
   },
   {
-    uv: 4700,
+    name: "03.12.2002",
+    value: 1678.93,
   },
   {
-    uv: 3500,
+    name: "03.12.2003",
+    value: 2356,
   },
   {
-    uv: 2444,
+    name: "03.12.2004",
+    value: 3676.42,
   },
   {
-    uv: 1470,
+    name: "03.12.2005",
+    value: 4676.83,
   },
   {
-    uv: 1400,
+    name: "03.12.2006",
+    value: 5668,
   },
   {
-    uv: 4000,
+    name: "03.12.2007",
+    value: 6237.21,
   },
   {
-    uv: 4444,
+    name: "03.12.2008",
+    value: 5904.42,
   },
   {
-    uv: 4500,
+    name: "03.12.2009",
+    value: 5034.56,
   },
   {
-    uv: 4700,
+    name: "03.12.2010",
+    value: 6700.25,
   },
   {
-    uv: 4444,
-  },
-  {
-    uv: 4500,
-  },
-  {
-    uv: 4700,
-  },
-  {
-    uv: 3500,
-  },
-  {
-    uv: 2444,
-  },
-  {
-    uv: 1470,
-  },
-  {
-    uv: 1400,
-  },
-  {
-    uv: 4000,
-  },
-  {
-    uv: 4444,
-  },
-  {
-    uv: 4500,
-  },
-  {
-    uv: 4700,
-  },
-  {
-    uv: 4444,
-  },
-  {
-    uv: 4500,
-  },
-  {
-    uv: 4700,
-  },
-  {
-    uv: 3500,
-  },
-  {
-    uv: 2444,
-  },
-  {
-    uv: 1470,
-  },
-  {
-    uv: 1400,
-  },
-  {
-    uv: 4000,
-  },
-  {
-    uv: 4444,
-  },
-  {
-    uv: 4500,
-  },
-  {
-    uv: 4700,
-  },
-  {
-    uv: 4444,
-  },
-  {
-    uv: 4500,
-  },
-  {
-    uv: 4700,
-  },
-  {
-    uv: 3500,
-  },
-  {
-    uv: 2444,
-  },
-  {
-    uv: 1470,
-  },
-  {
-    uv: 1400,
-  },
-  {
-    uv: 4000,
-  },
-  {
-    uv: 4444,
-  },
-  {
-    uv: 4500,
-  },
-  {
-    uv: 4700,
-  },
-  {
-    uv: 4444,
-  },
-  {
-    uv: 4500,
-  },
-  {
-    uv: 4700,
-  },
-  {
-    uv: 3500,
-  },
-  {
-    uv: 2444,
-  },
-  {
-    uv: 1470,
-  },
-  {
-    uv: 1400,
-  },
-  {
-    uv: 4000,
-  },
-  {
-    uv: 4444,
-  },
-  {
-    uv: 4500,
-  },
-  {
-    uv: 4700,
-  },
-  {
-    uv: 4444,
-  },
-  {
-    uv: 4500,
-  },
-  {
-    uv: 4700,
-  },
-  {
-    uv: 3500,
-  },
-  {
-    uv: 2444,
-  },
-  {
-    uv: 1470,
-  },
-  {
-    uv: 1400,
-  },
-  {
-    uv: 4000,
-  },
-  {
-    uv: 4444,
-  },
-  {
-    uv: 4500,
-  },
-  {
-    uv: 4700,
-  },
-  {
-    uv: 4444,
-  },
-  {
-    uv: 4500,
-  },
-  {
-    uv: 4700,
-  },
-  {
-    uv: 3500,
-  },
-  {
-    uv: 2444,
-  },
-  {
-    uv: 1470,
-  },
-  {
-    uv: 1400,
-  },
-  {
-    uv: 4000,
-  },
-  {
-    uv: 4444,
-  },
-  {
-    uv: 4500,
-  },
-  {
-    uv: 4700,
-  },
-  {
-    uv: 4444,
-  },
-  {
-    uv: 4500,
-  },
-  {
-    uv: 4700,
-  },
-  {
-    uv: 3500,
-  },
-  {
-    uv: 2444,
-  },
-  {
-    uv: 1470,
-  },
-  {
-    uv: 1400,
-  },
-  {
-    uv: 4000,
-  },
-  {
-    uv: 4444,
-  },
-  {
-    uv: 4500,
-  },
-  {
-    uv: 4700,
-  },
-
-  {
-    uv: 4444,
-  },
-  {
-    uv: 4500,
-  },
-  {
-    uv: 4700,
-  },
-  {
-    uv: 3500,
-  },
-  {
-    uv: 2444,
-  },
-  {
-    uv: 1470,
-  },
-  {
-    uv: 1400,
-  },
-  {
-    uv: 4000,
-  },
-  {
-    uv: 4444,
-  },
-  {
-    uv: 4500,
-  },
-  {
-    uv: 4700,
-  },
-  {
-    uv: 4444,
-  },
-  {
-    uv: 4500,
-  },
-  {
-    uv: 4700,
-  },
-  {
-    uv: 3500,
-  },
-  {
-    uv: 2444,
-  },
-  {
-    uv: 1470,
-  },
-  {
-    uv: 1400,
-  },
-  {
-    uv: 4000,
-  },
-  {
-    uv: 4444,
-  },
-  {
-    uv: 4500,
-  },
-  {
-    uv: 4700,
-  },
-
-  {
-    uv: 4444,
-  },
-  {
-    uv: 4500,
-  },
-  {
-    uv: 4700,
-  },
-  {
-    uv: 3500,
-  },
-  {
-    uv: 2444,
-  },
-  {
-    uv: 1470,
-  },
-  {
-    uv: 1400,
-  },
-  {
-    uv: 4000,
-  },
-  {
-    uv: 4444,
-  },
-  {
-    uv: 4500,
-  },
-  {
-    uv: 4700,
-  },
-  {
-    uv: 4444,
-  },
-  {
-    uv: 4500,
-  },
-  {
-    uv: 4700,
-  },
-  {
-    uv: 3500,
-  },
-  {
-    uv: 2444,
-  },
-  {
-    uv: 1470,
-  },
-  {
-    uv: 1400,
-  },
-  {
-    uv: 4000,
-  },
-  {
-    uv: 4444,
-  },
-  {
-    uv: 4500,
-  },
-  {
-    uv: 4700,
-  },
-  {
-    uv: 4444,
-  },
-  {
-    uv: 4500,
-  },
-  {
-    uv: 4700,
-  },
-  {
-    uv: 3500,
-  },
-  {
-    uv: 2444,
-  },
-  {
-    uv: 1470,
-  },
-  {
-    uv: 1400,
-  },
-  {
-    uv: 4000,
-  },
-  {
-    uv: 4444,
-  },
-  {
-    uv: 4500,
-  },
-  {
-    uv: 4700,
-  },
-  {
-    uv: 4444,
-  },
-  {
-    uv: 4500,
-  },
-  {
-    uv: 4700,
-  },
-  {
-    uv: 3500,
-  },
-  {
-    uv: 2444,
-  },
-  {
-    uv: 1470,
-  },
-  {
-    uv: 1400,
-  },
-  {
-    uv: 4000,
-  },
-  {
-    uv: 4444,
-  },
-  {
-    uv: 4500,
-  },
-  {
-    uv: 4700,
-  },
-
-  {
-    uv: 4444,
-  },
-  {
-    uv: 4500,
-  },
-  {
-    uv: 4700,
-  },
-  {
-    uv: 3500,
-  },
-  {
-    uv: 2444,
-  },
-  {
-    uv: 1470,
-  },
-  {
-    uv: 1400,
-  },
-  {
-    uv: 4000,
-  },
-  {
-    uv: 4444,
-  },
-  {
-    uv: 4500,
-  },
-  {
-    uv: 4700,
-  },
-  {
-    uv: 4444,
-  },
-  {
-    uv: 4500,
-  },
-  {
-    uv: 4700,
-  },
-  {
-    uv: 3500,
-  },
-  {
-    uv: 2444,
-  },
-  {
-    uv: 1470,
-  },
-  {
-    uv: 1400,
-  },
-  {
-    uv: 4000,
-  },
-  {
-    uv: 4444,
-  },
-  {
-    uv: 4500,
-  },
-  {
-    uv: 4700,
-  },
-  {
-    uv: 4444,
-  },
-  {
-    uv: 4500,
-  },
-  {
-    uv: 4700,
-  },
-  {
-    uv: 3500,
-  },
-  {
-    uv: 2444,
-  },
-  {
-    uv: 1470,
-  },
-  {
-    uv: 1400,
-  },
-  {
-    uv: 4000,
-  },
-  {
-    uv: 4444,
-  },
-  {
-    uv: 4500,
-  },
-  {
-    uv: 4700,
-  },
-
-  {
-    uv: 4444,
-  },
-  {
-    uv: 4500,
-  },
-  {
-    uv: 4700,
-  },
-  {
-    uv: 3500,
-  },
-  {
-    uv: 2444,
-  },
-  {
-    uv: 1470,
-  },
-  {
-    uv: 1400,
-  },
-  {
-    uv: 4000,
-  },
-  {
-    uv: 4444,
-  },
-  {
-    uv: 4500,
-  },
-  {
-    uv: 4700,
+    name: "03.12.2011",
+    value: 7300.45,
   },
 ]
 
-const formatter = new Intl.NumberFormat("ru", {
-  minimumSignificantDigits: 2,
-  currency: "RUB",
-  currencyDisplay: "symbol",
-  style: "currency",
-})
-
 export default () => {
-  return (
-    <ResponsiveContainer className={classes.container}>
-      <LineChart width={500} height={300} data={data}>
-        <Tooltip
-          active={true}
-          labelClassName={classes.tooltipLabel}
-          wrapperClassName={classes.tooltipWrapper}
-          position={{ x: 0, y: 0 }}
-          cursor={{ stroke: "var(--spectrum-global-color-chart-cursor)" }}
-          formatter={(value: string) => formatter.format(+value)}
-        />
+  const [value, setValue] = useState({
+    value: data[data.length - 1].value,
+    date: data[data.length - 1].name,
+  })
 
-        <Line
-          dot={false}
-          type="monotone"
-          dataKey="uv"
-          stroke="var(--spectrum-global-color-chart-line)"
-          strokeWidth={2}
-        />
-      </LineChart>
-    </ResponsiveContainer>
+  const valueHoverHandler = useCallback(
+    (data) => {
+      const newValue = +data.value
+      value.value !== newValue &&
+        setValue({
+          value: newValue,
+          date: data.name,
+        })
+    },
+    [value]
+  )
+
+  return (
+    <>
+      <View marginStart="size-300">
+        <TickerName>Apple (AAPL)</TickerName>
+        {value.date}:<TickerValue locale="eu">{value.value}</TickerValue>
+      </View>
+      <LineChart data={data} onMouseMove={valueHoverHandler} />
+    </>
   )
 }

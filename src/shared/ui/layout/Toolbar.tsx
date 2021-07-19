@@ -1,5 +1,5 @@
 import { View } from "@adobe/react-spectrum"
-import { BasicComponentProps } from "./types"
+import { BasicComponentProps } from "../types"
 
 export type ToolbarProps = BasicComponentProps
 
